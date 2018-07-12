@@ -67,6 +67,11 @@ v1.3''', description: 'What to deploy?')
             sleep(time: 20, unit: 'SECONDS')
           }
         }
+        stage('Checkpoint') {
+          steps {
+            checkpoint 'Checkpoint'
+          }
+        }
       }
     }
   }
