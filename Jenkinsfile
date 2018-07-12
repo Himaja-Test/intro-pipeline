@@ -46,6 +46,11 @@ v1.3''', description: 'What to deploy?')
         echo "${KERNEL_VERSION}"
       }
     }
+    stage('Checkpoint') {
+      steps {
+        checkpoint 'Checkpoint'
+      }
+    }
     stage('Testing') {
       failFast true
       parallel {
@@ -65,11 +70,6 @@ v1.3''', description: 'What to deploy?')
           steps {
             sh 'java -version'
             sleep(time: 20, unit: 'SECONDS')
-          }
-        }
-        stage('Checkpoint') {
-          steps {
-            checkpoint 'Checkpoint'
           }
         }
       }
